@@ -1,0 +1,273 @@
+/* --- 自訂字體設定 --- */
+@font-face {
+    font-family: 'MyCustomFont'; /* 您自訂的字體名稱 */
+    src: url('fonts/MyCustomFont.woff2') format('woff2'),
+    url('fonts/MyCustomFont.woff') format('woff'),
+    url('fonts/MyCustomFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- 基本設定與復古配色 --- */
+body {
+    font-family: 'MyCustomFont', 'Press Start 2P', 'Noto Sans TC', sans-serif;
+    /* 藍天草地背景 */
+    background: linear-gradient(to bottom, #42cbff 55%, #47af50 55%);
+    color: #222222; /* 預設文字顏色改為深色 */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.8;
+    font-size: 14px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.85); /* 半透明白色背景 (85% 不透明度) */
+    color: #222222; /* 容器內預設文字顏色為深色 */
+    border: 5px solid #ff66c4; /* 粉色邊框保持 */
+    box-shadow: 8px 8px 0px 0px #000000; /* 黑色陰影 */
+    padding: 25px 35px;
+    width: 90%;
+    max-width: 780px;
+    text-align: center;
+    animation: fadeInContainer 1s ease-out;
+    backdrop-filter: blur(2px); /* 可選：為背景添加輕微模糊效果，增強可讀性 */
+    -webkit-backdrop-filter: blur(2px); /* Safari 支援 */
+}
+
+@keyframes fadeInContainer {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1, h2, h3, .rsvp-button, .pacman-text, .glitch-header, .star-name, .btn-icon, .icon {
+    font-family: 'MyCustomFont', 'Press Start 2P', 'Noto Sans TC', cursive;
+}
+
+/* 標題顏色和陰影調整為深色文字配淺色陰影或無陰影 */
+h1 { font-size: 2.8em; color: #C0392B; margin-bottom: 30px; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); letter-spacing: 1px;} /* 深紅，更明顯的深陰影 */
+h2 { font-size: 2.1em; color: #1E8449; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); letter-spacing: 1px;} /* 深綠 */
+h3 { font-size: 1.8em; color: #D68910; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); letter-spacing: 1px;} /* 深橘 */
+.icon { display: inline-block; margin-right: 8px; font-size: 1.5em; color: #333333; } /* 圖標使用深灰色 */
+
+p {
+    font-size: 1.35em;
+    line-height: 1.9;
+    text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.5); /* 為一般段落添加非常細微的淺色陰影，提高在複雜背景下的可讀性 */
+}
+.invitation-text { color: #004d00; line-height: 2.1; margin: 20px 0; text-shadow: 1px 1px 0px rgba(255,255,255,0.6); } /* 深綠色邀請文字，加強淺色陰影 */
+.birthday-stars {
+    margin: 30px 0;
+    color: #111111; /* 非常深的文字顏色 */
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #ffc0cb, -1px -1px 0px rgba(0,0,0,0.1); /* 淺粉色陰影 + 微弱深色反向陰影 */
+}
+.image-caption { font-size: 1.0em; color: #555555; text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.7); } /* 中度灰色圖片說明，加淺色陰影 */
+
+
+/* Glitch 特效 - 容器背景變淺，Glitch 疊加層背景也需調整 */
+.glitch-header {
+    position: relative;
+    color: #C0392B; /* h1 的深紅色 */
+}
+.glitch-header::before,
+.glitch-header::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85); /* 和容器背景一致 (半透明白色) */
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+.glitch-header::before {
+    left: 2px;
+    text-shadow: -2px 0 #00FFFF; /* 青色 */
+    animation: glitch-anim-1 4.5s infinite linear alternate-reverse;
+}
+.glitch-header::after {
+    left: -2px;
+    text-shadow: -2px 0 #ff66c4, 2px 2px #00FFFF; /* 粉色和青色 */
+    animation: glitch-anim-2 4s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim-1 {
+    0% { clip: rect(42px, 9999px, 44px, 0); transform: skewX(0deg); } 10% { clip: rect(17px, 9999px, 92px, 0); transform: skewX(3deg); } 20% { clip: rect(40px, 9999px, 20px, 0); transform: skewX(-3deg); } 30% { clip: rect(65px, 9999px, 78px, 0); transform: skewX(0deg); } 40% { clip: rect(23px, 9999px, 50px, 0); transform: skewX(2deg); } 50% { clip: rect(88px, 9999px, 12px, 0); transform: skewX(-2deg); } 60% { clip: rect(35px, 9999px, 100px, 0); transform: skewX(0deg); } 70% { clip: rect(70px, 9999px, 30px, 0); transform: skewX(1deg); } 80% { clip: rect(10px, 9999px, 60px, 0); transform: skewX(-1deg); } 90% { clip: rect(55px, 9999px, 5px, 0); transform: skewX(0deg); } 100% { clip: rect(3px, 9999px, 80px, 0); transform: skewX(0deg); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip: rect(65px, 9999px, 102px, 0); transform: skewX(0deg); } 10% { clip: rect(5px, 9999px, 75px, 0); transform: skewX(-2deg); } 20% { clip: rect(80px, 9999px, 33px, 0); transform: skewX(2deg); } 30% { clip: rect(22px, 9999px, 90px, 0); transform: skewX(0deg); } 40% { clip: rect(48px, 9999px, 15px, 0); transform: skewX(-1deg); } 50% { clip: rect(92px, 9999px, 55px, 0); transform: skewX(1deg); } 60% { clip: rect(12px, 9999px, 70px, 0); transform: skewX(0deg); } 100% { clip: rect(65px, 9999px, 102px, 0); transform: skewX(0deg); }
+}
+
+/* 壽星名字特效 - 顏色調整為深色系 */
+.star-name {
+    display: inline-block;
+    position: relative;
+    padding: 4px 10px;
+    margin: 0 6px;
+    transition: transform 0.1s ease-in-out;
+    font-size: 1em; /* 相對於已放大的 .birthday-stars */
+}
+.name-yuda { animation: nameEffectYuda 0.7s infinite steps(1, end); }
+@keyframes nameEffectYuda {
+    0% { transform: translate(0, 0); color: #A12C27; } /* 深紅 */
+    20% { transform: translate(-2px, 1px); color: #8B6914; } /* 深金 */
+    40% { transform: translate(1px, -1px); color: #B31B6D; } /* 深粉紫 */
+    60% { transform: translate(-1px, 2px); color: #8B6914; }
+    80% { transform: translate(2px, -1px); color: #A12C27; }
+    100% { transform: translate(0, 0); color: #B31B6D; }
+}
+.name-yuru { animation: nameEffectYuru 1.1s infinite ease-in-out; }
+@keyframes nameEffectYuru {
+    0%, 100% { transform: scale(1); opacity: 1; color: #006A6A; } /* 深青藍 */
+    50% { transform: scale(1.2) rotate(3deg); opacity: 0.8; color: #1A9090; text-shadow: 0 0 3px #ffc0cb;} /* 稍淺青藍，淺粉陰影 */
+}
+
+/* 圖片區域 */
+.party-image img {
+    max-width: 85%;
+    height: auto;
+    border: 4px solid #111111; /* 深色邊框，與淺容器背景對比 */
+    margin: 30px auto 10px auto;
+    display: block;
+    background-color: rgba(204, 204, 204, 0.8); /* 圖片未加載時的半透明淺灰色背景 */
+    box-shadow: 5px 5px 0px #000;
+}
+
+/* RSVP 按鈕 - 文字改為深色 */
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 25px 0;
+}
+.rsvp-button {
+    font-size: 1.3em;
+    padding: 15px 25px;
+    border: 4px solid #000000;
+    cursor: pointer;
+    color: #111111; /* 按鈕文字改為深色 */
+    text-transform: uppercase;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background-color 0.15s;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-icon { margin-right: 10px; font-size: 1.2em; } /* 圖標會繼承按鈕的深色 */
+.yes-button { background-color: #4CAF50; box-shadow: 5px 5px 0px 0px #2E8B57; }
+.no-button { background-color: #F44336; box-shadow: 5px 5px 0px 0px #B22222; }
+.rsvp-button:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 7px 7px 0px 0px #000000;
+}
+.yes-button:hover { background-color: #66BB6A; border-color: #ff66c4; }
+.no-button:hover { background-color: #EF5350; }
+.rsvp-button:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 3px 3px 0px 0px #000000;
+    top: 2px;
+    left: 1px;
+}
+.button-activated-float { animation: activatedFloat 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.5); }
+@keyframes activatedFloat {
+    0%   { transform: translateY(2px) translateX(1px) scale(1); } 30%  { transform: translateY(-12px) translateX(-4px) scale(1.15); }
+    60%  { transform: translateY(4px) translateX(2px) scale(0.9); } 100% { transform: translateY(0) translateX(0) scale(1); }
+}
+.rsvp-feedback {
+    margin-top: 25px;
+    font-size: 1.3em;
+    min-height: 25px;
+    color: #111111; /* 預設回饋文字深色 */
+    text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.7); /* 細微淺色陰影 */
+    font-weight: bold;
+}
+
+/* 頁尾 Pac-Man 特效 - 文字顏色調整 */
+footer {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 4px dashed #ff66c4;
+    color: #333333; /* 頁尾預設文字深灰色 */
+}
+.pacman-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.pacman-icon {
+    width: 28px;
+    height: 28px;
+    fill: #FFD700; /* Pac-Man 黃色不變 */
+    animation: pacmanChomp 0.5s infinite steps(2, end);
+}
+@keyframes pacmanChomp {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-30deg); }
+}
+.pacman-text {
+    font-size: 1.2em;
+    animation: pacmanColorPulse 1.5s infinite alternate;
+    text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.3); /* 頁尾文字也加一點淺陰影 */
+}
+@keyframes pacmanColorPulse {
+    0% { color: #333333; }
+    50% { color: #B8860B; text-shadow: 0.5px 0.5px 0 rgba(255,255,255,0.3), 0 0 5px #B8860B; }
+    100% { color: #333333; }
+}
+
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    body {
+        font-size: 13px;
+        background: linear-gradient(to bottom, #42cbff 50%, #47af50 50%);
+    }
+    .container { padding: 20px 25px; max-width: 90%; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);}
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.6em; }
+    .birthday-stars { font-size: 1.6em; }
+    p, .invitation-text { font-size: 1.25em; }
+    .rsvp-button { font-size: 1.2em; padding: 13px 22px;}
+    .pacman-text { font-size: 1.1em; }
+    .pacman-icon { width: 24px; height: 24px; }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+        padding: 10px;
+        background: linear-gradient(to bottom, #42cbff 45%, #47af50 45%);
+    }
+    .container { padding: 15px; width: 95%; border-width: 4px; box-shadow: 6px 6px 0px 0px #000000; backdrop-filter: none; -webkit-backdrop-filter: none;} /* 手機上移除 backdrop-filter 以提升效能 */
+    h1 { font-size: 2.0em; text-shadow: 2px 2px 0px rgba(0,0,0,0.15);}
+    h2 { font-size: 1.6em; text-shadow: 2px 2px 0px rgba(0,0,0,0.15);}
+    h3 { font-size: 1.3em; text-shadow: 1px 1px 0px rgba(0,0,0,0.15);}
+    .birthday-stars { font-size: 1.4em; }
+    p, .invitation-text {
+        font-size: 1.15em;
+    }
+    .rsvp-feedback { font-size: 1.1em; }
+
+    .button-wrapper { flex-direction: column; gap: 18px; }
+    .rsvp-button { font-size: 1.1em; padding: 12px 18px; width: 80%; border-width: 3px; box-shadow: 4px 4px 0px 0px #2E8B57; }
+    .no-button {box-shadow: 4px 4px 0px 0px #B22222;}
+    .party-image img { max-width: 90%; border-width: 3px; box-shadow: 4px 4px 0px #000;}
+    footer { border-top-width: 3px;}
+    .pacman-text { font-size: 1em; }
+    .pacman-icon { width: 20px; height: 20px; }
+}

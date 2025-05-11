@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生日派對邀請函!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header class="glitch-header" data-text="YOU'RE INVITED!">
+    <h1>YOU'RE INVITED!</h1>
+  </header>
+
+  <section class="party-info">
+    <h2><span class="icon">👾</span> 呂侑達 & 呂侑儒的 <span class="icon">👾</span><br>LV.22大冒險!</h2>
+    <p class="birthday-stars">
+      壽星:
+      <span class="star-name name-yuda">呂侑達</span> &
+      <span class="star-name name-yuru">呂侑儒</span>
+    </p>
+    <p><span class="icon"></span> 日期: 2025年 05月 21日</p>
+    <p><span class="icon"></span> 時間: 晚上 6點 開始</p>
+    <p><span class="icon"></span> 地點: 蛇窩3.0</p>
+
+    <div class="party-image">
+      <img src="birt.png"
+           alt="我的生日派對主題圖"
+           onerror="this.src='https://placehold.co/400x250/EEEEEE/333?text=Image+Error'; this.alt='圖片加載失敗'">
+    </div>
+
+    <p class="invitation-text">
+      等級22的冒險正式開啟！<br>
+      一起來慶祝我們的生日吧！<br>
+      一起來把LV.22這個關卡過得超精彩吧！
+    </p>
+  </section>
+
+  <section class="rsvp">
+    <h3><span class="icon">❓</span> 要加入我們的冒險嗎? <span class="icon">❓</span></h3>
+    <div class="button-wrapper">
+      <button id="yesBtn" class="rsvp-button yes-button">
+        <span class="btn-icon">✔️</span> YES!
+      </button>
+      <button id="noBtn" class="rsvp-button no-button">
+        <span class="btn-icon">✖️</span> NO...
+      </button>
+    </div>
+    <p id="rsvp-message" class="rsvp-feedback"></p>
+  </section>
+
+  <footer>
+    <div class="pacman-footer">
+      <svg class="pacman-icon" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32"><path d="M16 13.2c-.7 0-1.4-.1-2-.4-.4-.2-.9-.6-1.2-1-.4-.4-.7-.9-1-1.3s-.4-.9-.4-1.4.1-1 .4-1.4.6-.8 1-1.2c.8-.8 1.9-1.2 3.1-1.2s2.3.4 3.1 1.2c.4.4.7.8.9 1.2.2.4.3.9.3 1.4s-.1 1-.3 1.4c-.2.4-.5.8-.9 1.2-.8.8-1.9 1.2-3.1 1.2zM16 0C7.2 0 0 7.2 0 16s7.2 16 16 16 16-7.2 16-16S24.8 0 16 0zm0 29C8.8 29 3 23.2 3 16S8.8 3 16 3s13 5.8 13 13-5.8 13-13 13zm11.1-13.9-7.2-4.7c-.2-.1-.4-.2-.6-.2-.5 0-1 .2-1.3.6l-8.9 8.9c-.2.2-.3.4-.3.7s.1.5.3.7l8.9 8.9c.3.3.8.5 1.3.5.2 0 .4-.1.6-.2l7.2-4.7c.5-.3.9-.9.9-1.5s-.3-1.2-.9-1.5z" fill="#FFD700" class="fill-000000"></path></svg>
+      <p class="pacman-text">- PRESS START TO PARTY -</p>
+    </div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
